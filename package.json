@@ -1,0 +1,34 @@
+{
+	"name": "react-ts-mern-template",
+	"version": "1.0.2",
+	"description": "MERN app template with TypeScript",
+	"bin": {
+		"react-ts-mern-template": "bin/index.js"
+	},
+	"main": "index.js",
+	"repository": {
+		"url": "https://github.com/pipelineSoftwareTeam/react-ts-mern-template"
+	},
+	"scripts": {
+		"setup": "concurrently \"npm install\" \"cd client && npm install\" \"cd server && npm install\" ",
+		"dev": "concurrently \"cd server && npm run dev\" \"cd client && npm run dev\" ",
+		"format": "prettier --write ."
+	},
+	"keywords": [
+		"react",
+		"typescript",
+		"mern",
+		"express",
+		"mongoDB",
+		"vitest",
+		"vite",
+		"msw",
+		"template",
+		"starter"
+	],
+	"author": "Pipeline Software Team",
+	"license": "ISC",
+	"dependencies": {
+		"concurrently": "^8.0.1"
+	}
+}
