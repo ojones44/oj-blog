@@ -4,8 +4,8 @@ import { render, screen } from '@testing-library/react';
 // Component imports
 import { Heading } from '@/components';
 
-describe('Simple working test', () => {
-  it('has class yeah__nice', () => {
+describe('Heading component test suite', () => {
+  it('renders correct text', () => {
     render(<Heading heading="Blog Heading" />);
 
     const headingEl = screen.getByRole('heading', { name: /blog/i });
