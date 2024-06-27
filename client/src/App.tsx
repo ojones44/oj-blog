@@ -1,17 +1,5 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+// react imports
+import { RouterProvider } from 'react-router-dom';
+import { router as BlogRouter } from '@/router/blogRouter';
 
-// Page Imports
-import { Blog, NotFound } from '@/pages';
-
-export const App = () => (
-  <Routes>
-    <Route path="/" element={<Blog />} />
-    <Route path="*" element={<NotFound />} />
-  </Routes>
-);
-
-export const WrappedApp = () => (
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
-);
+export const WrappedApp = () => <RouterProvider router={BlogRouter} />;

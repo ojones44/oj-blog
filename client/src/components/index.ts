@@ -7,6 +7,7 @@ import { Loading } from './Loading';
 import Pagination from './Pagination';
 import { Post } from './Post';
 import { Search } from './Search';
+import { NavBar } from './NavBar';
 
 export {
   Heading,
@@ -18,4 +19,5 @@ export {
   Pagination,
   Post,
   Search,
+  NavBar,
 };
