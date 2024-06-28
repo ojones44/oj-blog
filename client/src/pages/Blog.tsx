@@ -1,3 +1,3 @@
 // component imports
 
-export const Blog = () => <h1>Oliver Jones Blog</h1>;
+export const Blog = () => <h2>Oliver Jones Blog</h2>;

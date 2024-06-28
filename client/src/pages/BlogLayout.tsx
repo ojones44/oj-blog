@@ -2,11 +2,11 @@
 import { Outlet } from 'react-router-dom';
 
 // component imports
-import { NavBar } from '@/components';
+import { Navigation } from '@/components';
 
 export const BlogLayout = () => (
   <>
-    <NavBar />
+    <Navigation />
     <Outlet />
   </>
 );

@@ -1,4 +1,5 @@
 // react imports
+import type { RouteObject } from 'react-router-dom';
 import { createBrowserRouter } from 'react-router-dom';
 
 // Page Imports
@@ -11,7 +12,7 @@ import {
   NotFound,
 } from '@/pages';
 
-export const router = createBrowserRouter([
+export const blogRoutesConfig: RouteObject[] = [
   {
     path: '/',
     element: <BlogLayout />,
@@ -30,9 +31,11 @@ export const router = createBrowserRouter([
         element: <Settings />,
       },
       {
-        path: '/posts/:id',
+        path: 'posts/:id',
         element: <ViewPost />,
       },
     ],
   },
-]);
+];
+
+export const router = createBrowserRouter(blogRoutesConfig);
