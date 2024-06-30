@@ -9,6 +9,7 @@ import { Post } from './Post';
 import { Search } from './Search';
 import { Navigation } from './Navigation';
 import { Toggle } from './Toggle';
+import { LinkNewTab } from './LinkNewTab';
 
 export {
   Heading,
@@ -22,4 +23,5 @@ export {
   Search,
   Navigation,
   Toggle,
+  LinkNewTab,
 };

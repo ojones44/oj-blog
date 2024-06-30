@@ -3,12 +3,13 @@ import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { RouterProvider, createMemoryRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
-
 // util imports
 import { navLinks } from '@/utils/navLinks';
-import { blogRoutesConfig } from '@/router/blogRouter';
 
-const router = createMemoryRouter(blogRoutesConfig, {
+// component imports
+import { mockNavBarComponent } from '../mocks/routers';
+
+const router = createMemoryRouter(mockNavBarComponent, {
   initialEntries: ['/'],
 });
 
@@ -31,15 +32,45 @@ describe('NavBar functionality', () => {
 
   it('navigates to correct pages', async () => {
     const user = userEvent.setup();
-    const getCurrentUrl = () => router.state.location.pathname;
+    const getCurrentUrl = (): string => router.state.location.pathname;
     render(<RouterProvider router={router} />);
-    expect(getCurrentUrl()).toBe('/');
 
     const linkElements = await screen.findAllByRole('link');
+    const [blogFeed, socials, settings] = linkElements;
 
-    linkElements.forEach(async (link) => {
-      await user.click(link);
-      expect(getCurrentUrl()).toBe((link as HTMLAnchorElement).pathname);
-    });
+    await user.click(socials);
+    expect(getCurrentUrl()).toBe((socials as HTMLAnchorElement).pathname);
+    await user.click(settings);
+    expect(getCurrentUrl()).toBe((settings as HTMLAnchorElement).pathname);
+    await user.click(blogFeed);
+    expect(getCurrentUrl()).toBe((blogFeed as HTMLAnchorElement).pathname);
+  });
+  it('toggle is displayed and functions correctly', async () => {
+    const user = userEvent.setup();
+    render(<RouterProvider router={router} />);
+
+    const toggleHousing = screen.getByRole('presentation');
+    const slider = toggleHousing.firstChild;
+
+    expect(toggleHousing).toBeInTheDocument();
+    expect(slider).toBeInTheDocument();
+    expect(toggleHousing).toHaveClass('housing');
+    expect(slider).toHaveClass('slider');
+
+    await user.click(toggleHousing);
+    expect(toggleHousing).toHaveClass('bg-change');
+    expect(slider).toHaveClass('active');
+  });
+  it('displays dark/light icons', () => {
+    render(<RouterProvider router={router} />);
+
+    const themeIcons = screen.getAllByTitle(/theme-icon/i);
+    themeIcons.forEach((themeIcon) => expect(themeIcon).toBeInTheDocument());
+  });
+  it('displays social icons', () => {
+    render(<RouterProvider router={router} />);
+
+    const socials = screen.getAllByTitle(/social/i);
+    socials.forEach((social) => expect(social).toBeInTheDocument());
   });
 });

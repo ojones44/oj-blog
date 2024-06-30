@@ -8,46 +8,31 @@ interface ToggleProps {
 export const ToggleContainer = styled.div<ToggleProps>`
   .housing {
     position: relative;
-    display: inline-block;
-    width: ${(props) => props.$width}px;
-    height: ${(props) => props.$height}px;
-  }
-
-  input {
-    opacity: 0;
-    margin: 0;
-    padding: 0;
+    cursor: pointer;
+    width: ${({ $width }) => $width}px;
+    height: ${({ $height }) => $height}px;
+    border-radius: 100vmax;
+    background-color: grey;
+    transition: 0.4s;
   }
 
   .slider {
     position: absolute;
     cursor: pointer;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: grey;
-    border-radius: 100vmax;
-    transition: 0.4s;
-  }
-
-  .slider:before {
-    position: absolute;
-    content: '';
-    width: ${(props) => props.$height - 5}px;
-    height: ${(props) => props.$height - 5}px;
-    left: 3px;
-    bottom: 3px;
+    width: ${({ $height }) => $height - $height * 0.2}px;
+    height: ${({ $height }) => $height - $height * 0.2}px;
+    left: ${({ $height }) => $height / 2 - ($height - $height * 0.2) / 2}px;
+    top: ${({ $height }) => $height / 2 - ($height - $height * 0.2) / 2}px;
     background-color: white;
-    transition: 0.4s;
     border-radius: 100vmax;
+    transition: 0.4s;
   }
 
-  input:checked + .slider {
-    background-color: purple;
-  }
-
-  input:checked + .slider:before {
+  .active {
     transform: translateX(${(props) => props.$width - props.$height}px);
+  }
+
+  .bg-change {
+    background-color: purple;
   }
 `;

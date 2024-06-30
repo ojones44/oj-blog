@@ -24,6 +24,7 @@ module.exports = {
 
   rules: {
     'react/react-in-jsx-scope': 'off',
+    'react/require-default-props': 'off',
     'react/jsx-uses-react': 'off',
     'import/prefer-default-export': 'off',
     'import/extensions': 'off',
@@ -50,6 +51,22 @@ module.exports = {
       2,
       {
         namedComponents: 'arrow-function',
+      },
+    ],
+    'jsx-a11y/label-has-associated-control': [
+      'error',
+      {
+        required: {
+          some: ['nesting', 'id'],
+        },
+      },
+    ],
+    'jsx-a11y/label-has-for': [
+      'error',
+      {
+        required: {
+          some: ['nesting', 'id'],
+        },
       },
     ],
   },

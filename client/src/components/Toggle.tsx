@@ -1,3 +1,6 @@
+// react imports
+import { useState } from 'react';
+
 // styled component imports
 import { ToggleContainer } from '@/wrappers/Toggle';
 
@@ -6,16 +9,27 @@ interface ToggleProps {
   height?: number;
 }
 
-export const Toggle = ({ width, height }: ToggleProps): JSX.Element => (
-  <ToggleContainer $width={width} $height={height}>
-    <label htmlFor="toggler" className="housing">
-      <input id="toggler" type="checkbox" />
-      <span className="slider" />
-    </label>
-  </ToggleContainer>
-);
+export const Toggle = ({
+  width = 50,
+  height = 26,
+}: ToggleProps): JSX.Element => {
+  const [active, setActive] = useState<boolean>(false);
 
-Toggle.defaultProps = {
-  width: 50,
-  height: 26,
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key !== 'Enter') return;
+    setActive((prev) => !prev);
+  };
+
+  return (
+    <ToggleContainer $width={width} $height={height}>
+      <div
+        role="presentation"
+        onClick={() => setActive((prev) => !prev)}
+        onKeyDown={handleKeyDown}
+        className={active ? 'housing bg-change' : 'housing'}
+      >
+        <span className={active ? 'slider active' : 'slider'} />
+      </div>
+    </ToggleContainer>
+  );
 };

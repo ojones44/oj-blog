@@ -6,7 +6,7 @@ import { FaRegMoon } from 'react-icons/fa';
 import { navLinks } from '@/utils/navLinks';
 
 // component imports
-import { Toggle as ThemeToggle } from '@/components/Toggle';
+import { Toggle as ThemeToggle, LinkNewTab } from '@/components';
 
 // style components
 import {
@@ -18,7 +18,7 @@ import {
   NavBarSocials,
 } from '@/wrappers/NavBar';
 
-export const Navigation = () => (
+export const Navigation = (): JSX.Element => (
   <NavBar>
     <LeftNav>
       <div>OJBlog</div>
@@ -32,14 +32,20 @@ export const Navigation = () => (
     </LeftNav>
     <RightNav>
       <NavBarThemeToggler>
-        <FaRegMoon />
+        <FaRegMoon title="theme-icon" />
         <ThemeToggle />
-        <MdOutlineLightMode />
+        <MdOutlineLightMode title="theme-icon" />
       </NavBarThemeToggler>
       <NavBarSocials>
-        <FiGithub />
-        <RiLinkedinFill />
-        <RiTwitterXLine />
+        <LinkNewTab href="https://github.com/ojones44">
+          <FiGithub title="social-link" />
+        </LinkNewTab>
+        <LinkNewTab href="https://www.linkedin.com/in/oliverj1994">
+          <RiLinkedinFill title="social-link" />
+        </LinkNewTab>
+        <LinkNewTab href="https://x.com/oliverj1994">
+          <RiTwitterXLine title="social-link" />
+        </LinkNewTab>
       </NavBarSocials>
     </RightNav>
   </NavBar>
