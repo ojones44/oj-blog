@@ -1,14 +1,14 @@
-// util imports
-import { FiGithub } from 'react-icons/fi';
-import { RiLinkedinFill, RiTwitterXLine } from 'react-icons/ri';
-import { MdOutlineLightMode } from 'react-icons/md';
-import { FaRegMoon } from 'react-icons/fa';
-import { navLinks } from '@/utils/navLinks';
-
 // component imports
+import { FiGithub } from 'react-icons/fi';
+import { MdOutlineLightMode } from 'react-icons/md';
+import { RiLinkedinFill, RiTwitterXLine } from 'react-icons/ri';
+import { FaRegMoon } from 'react-icons/fa';
 import { Toggle as ThemeToggle, LinkNewTab } from '@/components';
 
-// style components
+// util imports
+import { navLinks } from '@/utils/navLinks';
+
+// styled components
 import {
   NavBar,
   LeftNav,

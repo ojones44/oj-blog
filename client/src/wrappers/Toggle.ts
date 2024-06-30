@@ -12,7 +12,8 @@ export const ToggleContainer = styled.div<ToggleProps>`
     width: ${({ $width }) => $width}px;
     height: ${({ $height }) => $height}px;
     border-radius: 100vmax;
-    background-color: grey;
+    border: 1px solid var(--theme-clr-secondary);
+    background-color: transparent;
     transition: 0.4s;
   }
 
@@ -23,7 +24,7 @@ export const ToggleContainer = styled.div<ToggleProps>`
     height: ${({ $height }) => $height - $height * 0.2}px;
     left: ${({ $height }) => $height / 2 - ($height - $height * 0.2) / 2}px;
     top: ${({ $height }) => $height / 2 - ($height - $height * 0.2) / 2}px;
-    background-color: white;
+    background-color: var(--theme-clr-accent);
     border-radius: 100vmax;
     transition: 0.4s;
   }
@@ -33,6 +34,5 @@ export const ToggleContainer = styled.div<ToggleProps>`
   }
 
   .bg-change {
-    background-color: purple;
   }
 `;

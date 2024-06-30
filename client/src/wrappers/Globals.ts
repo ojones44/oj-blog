@@ -1,20 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Maven+Pro:wght@400..900&display=swap');
+import { createGlobalStyle } from 'styled-components';
+import type { Theme } from '@/types/Theme';
 
+declare module 'styled-components' {
+  export interface DefaultTheme extends Theme {}
+}
+
+export const GlobalStyles = createGlobalStyle`
 :root {
   /* Assign fonts */
-  --ff-primary: 'Baloo', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  --ff-accent: monospace;
+  --ff-primary: ${({ theme }) => theme.typography.primary};
+  --ff-accent: ${({ theme }) => theme.typography.secondary};
 
   font-family: var(--ff-primary);
   line-height: 1.5;
 
-  /* Set main colours */
-  --clr-primary-100: rgb(255, 255, 255);
-  --clr-secondary-800: rgb(0, 0, 0);
+  /* Set main font colours */
+  --fc-primary: ${({ theme }) => theme.colors.fontColor};
 
-  /* Set neutral colours */
-  --clr-neutral-100: rgb(255, 255, 255);
-  --clr-neutral-800: rgb(0, 0, 0);
+  /* Set theme colours */
+  --theme-clr-base: ${({ theme }) => theme.colors.base};
+  --theme-clr-primary: ${({ theme }) => theme.colors.primary};
+  --theme-clr-secondary: ${({ theme }) => theme.colors.secondary};
+  --theme-clr-accent: ${({ theme }) => theme.colors.accent};
+  --theme-clr-neutral: ${({ theme }) => theme.colors.neutral};
+  --theme-clr-cat-coding: ${({ theme }) => theme.colors.category.coding};
+  --theme-clr-cat-framework: ${({ theme }) => theme.colors.category.framework};
+  --theme-clr-cat-learning: ${({ theme }) => theme.colors.category.learning};
+  --theme-clr-cat-life: ${({ theme }) => theme.colors.category.life};
+
+  /* Set theme styles */
+  --border-radius: ${({ theme }) => (theme.roundUI ? theme.style.borderRadius : '0px')};
 
   /* Assign font weights */
   --fw-regular: 300;
@@ -86,6 +101,8 @@ body {
 
 /* Set core body defaults */
 body {
+  background-color: var(--theme-clr-base);
+  color: var(--fc-primary);
   min-height: 100vw;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
@@ -104,28 +121,16 @@ picture {
   display: block;
 }
 
-/* ---------------------------------------------------------------- */
-/* ---------------General styling - HTML elements------------------ */
-/* ---------------------------------------------------------------- */
+svg {
+ color: var(--fc-primary);
+ font-size: var(--fs-500-fix);
+ padding: var(--size-100);
+}
 
-/* ---------------------------------------------------------------- */
-/* ---------------General styling - utilities --------------------- */
-/* ---------------------------------------------------------------- */
+svg:hover {
+  background-color: var(--theme-clr-primary);
+  border-radius: 100vmax;
+}
 
-/* utility classes here */
 
-/* ---------------------------------------------------------------- */
-/* ---------------General styling - selectors---------------------- */
-/* ---------------------------------------------------------------- */
-
-/* class, id selectors etc.. here */
-
-/* ---------------------------------------------------------------- */
-/* ---------------General styling - media queries ----------------- */
-/* ---------------------------------------------------------------- */
-
-/* media queries here */
-
-/* ---------------------------------------------------------------- */
-/* ---------------General styling - keyframes --------------------- */
-/* ---------------------------------------------------------------- */
+`;
