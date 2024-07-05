@@ -26,7 +26,7 @@ export const Toggle = ({
         role="presentation"
         onClick={() => setActive((prev) => !prev)}
         onKeyDown={handleKeyDown}
-        className={active ? 'housing bg-change' : 'housing'}
+        className="housing"
       >
         <span className={active ? 'slider active' : 'slider'} />
       </div>

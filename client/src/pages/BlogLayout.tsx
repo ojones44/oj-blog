@@ -11,7 +11,7 @@ import * as themes from '@/wrappers/themes';
 import { Navigation } from '@/components';
 
 export const BlogLayout = () => {
-  const [theme, setTheme] = useState(themes.light);
+  const [theme, setTheme] = useState(themes.synthwave);
 
   return (
     <ThemeProvider theme={theme}>

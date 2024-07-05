@@ -14,7 +14,7 @@ export const ToggleContainer = styled.div<ToggleProps>`
     border-radius: 100vmax;
     border: 1px solid var(--theme-clr-secondary);
     background-color: transparent;
-    transition: 0.4s;
+    transition: var(--transition-400);
   }
 
   .slider {
@@ -26,7 +26,7 @@ export const ToggleContainer = styled.div<ToggleProps>`
     top: ${({ $height }) => $height / 2 - ($height - $height * 0.2) / 2}px;
     background-color: var(--theme-clr-accent);
     border-radius: 100vmax;
-    transition: 0.4s;
+    transition: var(--transition-400);
   }
 
   .active {

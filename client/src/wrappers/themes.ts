@@ -15,8 +15,8 @@ export const light: Theme = {
     base: '#fff',
     fontColor: '#000',
     primary: 'oklch(0.6245 0.278 3.83636)',
-    secondary: 'oklch(0.484952 0.110985 355.096)',
-    accent: 'oklch(0.562735 0.054297 154.39)',
+    secondary: 'oklch(0.562735 0.054297 154.39)',
+    accent: 'oklch(0.6245 0.278 3.83636)',
     neutral: 'oklch(0.241559 0.049362 89.0706)',
     category: {
       coding: 'oklch(0.241559 0.049362 89.0706)',
@@ -42,7 +42,7 @@ export const dark: Theme = {
     fontColor: '#fff',
     primary: 'oklch(0.6245 0.278 3.83636)',
     secondary: 'oklch(0.484952 0.110985 355.096)',
-    accent: 'oklch(0.562735 0.054297 154.39)',
+    accent: 'oklch(0.6245 0.278 3.83636)',
     neutral: 'oklch(0.241559 0.049362 89.0706)',
     category: {
       coding: 'oklch(0.241559 0.049362 89.0706)',
@@ -82,5 +82,5 @@ export const synthwave: Theme = {
       'Space Mono,ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace',
     secondary: 'Baloo, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif',
   },
-  roundUI: false,
+  roundUI: true,
 };

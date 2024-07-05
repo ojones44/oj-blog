@@ -58,7 +58,6 @@ describe('NavBar functionality', () => {
     expect(slider).toHaveClass('slider');
 
     await user.click(toggleHousing);
-    expect(toggleHousing).toHaveClass('bg-change');
     expect(slider).toHaveClass('active');
   });
   it('displays dark/light icons', () => {

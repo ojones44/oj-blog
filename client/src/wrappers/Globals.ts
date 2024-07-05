@@ -29,7 +29,7 @@ export const GlobalStyles = createGlobalStyle`
   --theme-clr-cat-life: ${({ theme }) => theme.colors.category.life};
 
   /* Set theme styles */
-  --border-radius: ${({ theme }) => (theme.roundUI ? theme.style.borderRadius : '0px')};
+  --border-radius: ${({ theme }) => (theme.roundUI ? theme.style.borderRadius : '2px')};
 
   /* Assign font weights */
   --fw-regular: 300;
@@ -57,6 +57,10 @@ export const GlobalStyles = createGlobalStyle`
 
   /* Block flow */
   --flow-spacer: 1em;
+
+  /* Animations */
+  --transition-200: all 0.2s ease;
+  --transition-400: all 0.4s ease-in-out;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -99,6 +103,19 @@ body {
   height: 100%;
 }
 
+// inherit fonts
+input, button, textarea, select {
+  font: inherit;
+}
+
+input {
+  all: unset;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 3px solid var(--theme-clr-accent);
+}
+
+
 /* Set core body defaults */
 body {
   background-color: var(--theme-clr-base);
@@ -106,6 +123,7 @@ body {
   min-height: 100vw;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  padding: 0.25rem 2rem;
 }
 
 /* A elements that don't have a class get default styles */
@@ -122,14 +140,45 @@ picture {
 }
 
 svg {
+ cursor: pointer;
  color: var(--fc-primary);
- font-size: var(--fs-500-fix);
- padding: var(--size-100);
+ font-size: var(--fs-400-fix);
 }
 
-svg:hover {
+button {
+  cursor: pointer;
+  background-color: var(--theme-clr-accent);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+}
+
+button:hover {
+  transform: translateY(-1px);
+  transition: var(--transition-200);
+}
+
+button:active {
+  transform: scale(0.96);
+  transition: var(--transition-200);
+}
+
+
+// utility classes
+
+.social-link {
+  padding: var(--size-200);
+}
+
+.social-link:hover {
   background-color: var(--theme-clr-primary);
   border-radius: 100vmax;
+  transition: var(--transition-400);
+}
+
+.social-link svg:hover {
+  transform: rotateZ(5deg);
+  transition: var(--transition-200);
 }
 
 

@@ -21,8 +21,8 @@ import {
 export const Navigation = (): JSX.Element => (
   <NavBar>
     <LeftNav>
-      <div>OJBlog</div>
-      <div>
+      <div className="blog-name">OJBLOG</div>
+      <div className="links">
         {navLinks.map((link) => (
           <NavItem key={link.name} to={link.to}>
             {link.name}
@@ -32,9 +32,9 @@ export const Navigation = (): JSX.Element => (
     </LeftNav>
     <RightNav>
       <NavBarThemeToggler>
-        <FaRegMoon title="theme-icon" />
-        <ThemeToggle />
         <MdOutlineLightMode title="theme-icon" />
+        <ThemeToggle />
+        <FaRegMoon title="theme-icon" />
       </NavBarThemeToggler>
       <NavBarSocials>
         <LinkNewTab href="https://github.com/ojones44">
