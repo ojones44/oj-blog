@@ -1,5 +1,6 @@
 // component imports
 import { FiGithub } from 'react-icons/fi';
+import { IoSearchSharp } from 'react-icons/io5';
 import { MdOutlineLightMode } from 'react-icons/md';
 import { RiLinkedinFill, RiTwitterXLine } from 'react-icons/ri';
 import { FaRegMoon } from 'react-icons/fa';
@@ -31,6 +32,9 @@ export const Navigation = (): JSX.Element => (
       </div>
     </LeftNav>
     <RightNav>
+      <div className="icon">
+        <IoSearchSharp />
+      </div>
       <NavBarThemeToggler>
         <MdOutlineLightMode title="theme-icon" />
         <ThemeToggle />

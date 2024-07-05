@@ -57,10 +57,12 @@ export const GlobalStyles = createGlobalStyle`
 
   /* Block flow */
   --flow-spacer: 1em;
+  --nav-height: 12vh;
 
   /* Animations */
   --transition-200: all 0.2s ease;
   --transition-400: all 0.4s ease-in-out;
+  --transition-btn: all 0.2s ease-in-out;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -112,7 +114,7 @@ input {
   all: unset;
   padding: 0.5rem 1rem;
   border-radius: 5px;
-  border: 3px solid var(--theme-clr-accent);
+  border: 2px solid var(--theme-clr-accent);
 }
 
 
@@ -154,23 +156,23 @@ button {
 }
 
 button:hover {
-  transform: translateY(-1px);
-  transition: var(--transition-200);
+  transform: translateY(-3px);
+  transition: var(--transition-btn);
 }
 
 button:active {
-  transform: scale(0.96);
+  transform: scale(0.99);
   transition: var(--transition-200);
 }
 
 
 // utility classes
 
-.social-link {
+.icon {
   padding: var(--size-200);
 }
 
-.social-link:hover {
+.icon:hover {
   background-color: var(--theme-clr-primary);
   border-radius: 100vmax;
   transition: var(--transition-400);
@@ -179,6 +181,22 @@ button:active {
 .social-link svg:hover {
   transform: rotateZ(5deg);
   transition: var(--transition-200);
+}
+
+.category-coding {
+  background-color: var(--theme-clr-cat-coding);
+}
+
+.category-framework {
+  background-color: var(--theme-clr-cat-framework);
+}
+
+.category-learning {
+  background-color: var(--theme-clr-cat-learning);
+}
+
+.category-life {
+  background-color: var(--theme-clr-cat-life);
 }
 
 

@@ -22,8 +22,8 @@ export const ToggleContainer = styled.div<ToggleProps>`
     cursor: pointer;
     width: ${({ $height }) => $height - $height * 0.2}px;
     height: ${({ $height }) => $height - $height * 0.2}px;
-    left: ${({ $height }) => $height / 2 - ($height - $height * 0.2) / 2}px;
-    top: ${({ $height }) => $height / 2 - ($height - $height * 0.2) / 2}px;
+    left: ${({ $height }) => $height / 2 - ($height - $height * 0.15) / 2}px;
+    top: ${({ $height }) => $height / 2 - ($height - $height * 0.15) / 2}px;
     background-color: var(--theme-clr-accent);
     border-radius: 100vmax;
     transition: var(--transition-400);

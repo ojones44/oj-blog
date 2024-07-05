@@ -5,7 +5,7 @@ interface LinkNewTabProps {
 
 export const LinkNewTab = ({ href, children }: LinkNewTabProps) => (
   <a
-    className="social-link"
+    className="icon social-link"
     href={href}
     target="_blank"
     rel="noopener noreferrer"

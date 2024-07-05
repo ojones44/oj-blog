@@ -5,9 +5,12 @@ export const NavBar = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 10vh;
-  /* position: fixed;
-  overflow: hidden; */
+  height: var(--nav-height);
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  background-color: var(--theme-clr-base);
+  border-bottom: 2px solid var(--theme-clr-primary);
 `;
 
 export const LeftNav = styled.div`
