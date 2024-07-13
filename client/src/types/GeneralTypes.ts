@@ -1,3 +1,4 @@
 import type React from 'react';
+import type { Theme } from './Theme';
 
-export type SetStateAction<S> = React.Dispatch<S>;
+export type SetThemeHandler = React.Dispatch<Theme>;

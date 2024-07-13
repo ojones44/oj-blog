@@ -182,9 +182,33 @@ button:active {
   padding: 0.25rem 1rem;
 }
 
+.nav-btn {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.search-item {
+  opacity: 0;
+  transition: var(--transition-200);
+}
+
+.show-search {
+  opacity: 1;
+}
+
 .icon, .theme-select {
   cursor: pointer;
   padding: var(--size-200);
+}
+
+.theme-select {
+  text-align: center;
+  width: 8rem;
 }
 
 

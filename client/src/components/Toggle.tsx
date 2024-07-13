@@ -1,14 +1,14 @@
 // react imports
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTheme } from 'styled-components';
-import type { Theme } from '@/types/Theme';
+import type { SetThemeHandler } from '@/types/GeneralTypes';
 
 // styled component imports
 import { ToggleContainer } from '@/wrappers/Toggle';
 import * as themes from '@/wrappers/themes';
 
 interface ToggleProps {
-  toggleHandler: React.Dispatch<Theme>;
+  toggleHandler: SetThemeHandler;
   width?: number;
   height?: number;
 }
@@ -20,6 +20,15 @@ export const Toggle = ({
 }: ToggleProps): JSX.Element => {
   const [isDark, setIsDark] = useState<boolean>(false);
   const currentTheme = useTheme();
+
+  useEffect(() => {
+    if (currentTheme.themeName === 'light' && isDark) {
+      setIsDark(false);
+    }
+    if (currentTheme.themeName === 'dark' && !isDark) {
+      setIsDark(true);
+    }
+  }, [currentTheme, isDark]);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key !== 'Enter') return;

@@ -8,7 +8,6 @@ export const PostWrapper = styled.article`
 
   &:hover {
     box-shadow: 1px 7px 10px -3px var(--box-shadow-hover);
-    transform: translateX(2px);
   }
 
   #title {

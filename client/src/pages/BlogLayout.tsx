@@ -12,13 +12,17 @@ import { Navigation } from '@/components';
 
 export const BlogLayout = () => {
   const [theme, setTheme] = useState(themes.synthwave);
+  const [isSearching, setIsSearching] = useState<boolean>(false);
 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Navigation setTheme={setTheme} />
+      <Navigation
+        setTheme={setTheme}
+        setIsSearching={() => setIsSearching((prev) => !prev)}
+      />
       <section className="container">
-        <Outlet />
+        <Outlet context={[isSearching]} />
       </section>
     </ThemeProvider>
   );

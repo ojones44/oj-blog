@@ -44,30 +44,37 @@ export const RightNav = styled.div`
 export const NavBarThemeToggler = styled.div`
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 1rem;
+
+  .toggler {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
 
   .theme-modal {
     position: absolute;
+    top: 100%;
     outline: none;
     border: none;
     color: inherit;
-    /* background-color: var(--theme-clr-base); */
-    background-color: red;
-    width: 10rem;
-    height: 10rem;
-    max-width: 20rem;
-    padding: 2rem;
+    background-color: var(--theme-clr-base);
+    /* background-color: red; */
+    padding: 1rem 2rem;
     border-radius: var(--border-radius);
     box-shadow: 1px 7px 10px -3px var(--box-shadow-hover);
-    z-index: 999;
+  }
+
+  .theme-option {
+    display: block;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 0.5rem;
   }
 
   .theme-option:hover {
-    cursor: pointer;
-    background-color: var(--theme-clr-primary);
     transition: var(--transition-200);
-    border-radius: var(--border-radius);
-    padding: 0.25rem 0.5rem;
+    background-color: var(--theme-clr-primary);
   }
 `;
 

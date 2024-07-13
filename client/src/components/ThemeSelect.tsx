@@ -1,62 +1,51 @@
 // react imports
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { useTheme } from 'styled-components';
 import * as themes from '@/wrappers/themes';
+import { capitalize } from '@/utils/helpers';
+import type { SetThemeHandler } from '@/types/GeneralTypes';
 
 interface ModalProps {
-  isOpen: boolean;
-  children: React.ReactNode;
+  render: () => React.ReactNode;
 }
 
-const Modal = ({ isOpen, children }: ModalProps): JSX.Element => {
-  const [isModalOpen, setModalOpen] = useState(isOpen);
-  const modalRef = useRef<HTMLDivElement | null>(null);
+interface ThemeSelectProps {
+  setTheme: SetThemeHandler;
+}
 
-  useEffect(() => {
-    setModalOpen(isOpen);
-  }, [isOpen]);
+const Modal = ({ render }: ModalProps): JSX.Element => {
+  const modalRef = useRef<HTMLDivElement | null>(null);
 
   return (
     <div ref={modalRef} className="theme-modal">
-      {children}
+      {render()}
     </div>
   );
 };
 
-const themeMap = Object.values(themes).map((theme) => (
-  <div className="theme-option" key={theme.themeName}>
-    {theme.themeName}
-  </div>
-));
-
-export const ThemeSelect = () => {
+export const ThemeSelect = ({ setTheme }: ThemeSelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const currentTheme = useTheme();
 
   return (
     <div className="theme-select" onClick={() => setIsOpen((prev) => !prev)}>
-      {currentTheme.themeName}
-      {isOpen && <Modal isOpen={isOpen}>{themeMap}</Modal>}
+      {capitalize(currentTheme.themeName)}
+      {isOpen && (
+        <Modal
+          render={() =>
+            Object.values(themes).map((theme) => (
+              <button
+                type="button"
+                onClick={() => setTheme(theme)}
+                className="theme-option nav-btn"
+                key={theme.themeName}
+              >
+                {capitalize(theme.themeName)}
+              </button>
+            ))
+          }
+        />
+      )}
     </div>
   );
 };
-
-// const handleThemeSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-//   const newTheme = e.target.value as keyof typeof themes;
-//   setTheme(themes[newTheme]);
-// };
-
-/* <div className="theme-selector">
-  <select
-    value={currentTheme.themeName}
-    onChange={handleThemeSelect}
-    name="theme-selector"
-    id="theme-selector"
-  >
-    {Object.values(themes).map((theme) => (
-      <option key={theme.themeName} value={theme.themeName}>
-        {theme.themeName}
-      </option>
-    ))}
-  </select>
-</div> */

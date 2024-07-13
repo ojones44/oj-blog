@@ -4,6 +4,7 @@ import { IoSearchSharp } from 'react-icons/io5';
 import { MdOutlineLightMode } from 'react-icons/md';
 import { RiLinkedinFill, RiTwitterXLine } from 'react-icons/ri';
 import { FaRegMoon } from 'react-icons/fa';
+// import { TfiMenu } from 'react-icons/tfi';
 import type { NavProps } from '@/types/Navigation';
 import { Toggle as ThemeToggle, LinkNewTab, ThemeSelect } from '@/components';
 
@@ -23,7 +24,10 @@ import {
   NavBarSocials,
 } from '@/wrappers/NavBar';
 
-export const Navigation = ({ setTheme }: NavProps): JSX.Element => {
+export const Navigation = ({
+  setTheme,
+  setIsSearching,
+}: NavProps): JSX.Element => {
   const [navSeparator] = useCheckNavSeparator();
 
   return (
@@ -39,14 +43,16 @@ export const Navigation = ({ setTheme }: NavProps): JSX.Element => {
         </div>
       </LeftNav>
       <RightNav>
-        <div className="icon">
+        <button type="button" onClick={setIsSearching} className="icon nav-btn">
           <IoSearchSharp title="search-icon" />
-        </div>
+        </button>
         <NavBarThemeToggler>
-          <MdOutlineLightMode title="theme-icon" />
-          <ThemeToggle toggleHandler={setTheme} />
-          <FaRegMoon title="theme-icon" />
-          <ThemeSelect />
+          <div className="toggler">
+            <MdOutlineLightMode title="theme-icon" />
+            <ThemeToggle toggleHandler={setTheme} />
+            <FaRegMoon title="theme-icon" />
+          </div>
+          <ThemeSelect setTheme={setTheme} />
         </NavBarThemeToggler>
         <NavBarSocials>
           <LinkNewTab href="https://github.com/ojones44">

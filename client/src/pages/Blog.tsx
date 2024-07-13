@@ -1,16 +1,29 @@
+// react imports
+import { useOutletContext } from 'react-router-dom';
+
 // component imports
-import { Post } from '@/components';
+import { Post, Search } from '@/components';
 
-export const Blog = () => (
-  <>
-    <Post />
-    <Post />
-    <Post />
+// styled imports
+import { BlogWrapper } from '@/wrappers/Blog';
 
-    <button style={{ marginBottom: '2rem', marginRight: '2rem' }} type="button">
-      This is a test
-    </button>
+// type imports
+import type { ContextProps } from '@/types/Outlet';
 
-    <input type="text" placeholder="Search posts..." />
-  </>
-);
+export const Blog = () => {
+  const [isSearching] = useOutletContext<ContextProps>();
+
+  return (
+    <BlogWrapper>
+      <Search
+        classes={isSearching ? 'search-item show-search' : 'search-item'}
+        placeholder="Search blog posts..."
+      />
+      <div>
+        <Post />
+        <Post />
+        <Post />
+      </div>
+    </BlogWrapper>
+  );
+};

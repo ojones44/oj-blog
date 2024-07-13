@@ -6,6 +6,8 @@ import type { Theme } from '@/types/Theme';
 3. Poetsen One
 */
 
+import { toAlpha } from '@/utils/toAlpha';
+
 export const light: Theme = {
   themeName: 'light',
   style: {
@@ -39,9 +41,9 @@ export const dark: Theme = {
     borderRadius: '10px',
   },
   colors: {
-    base: '#000',
+    base: '#000000',
     fontColor: '#fff',
-    boxShadow: 'rgba(255, 255, 255, 0.2)',
+    boxShadow: toAlpha('#ffffff', 0.1),
     primary: '#f50076',
     secondary: '#a3004c',
     accent: '#d92684',

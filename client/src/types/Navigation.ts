@@ -7,4 +7,5 @@ export interface Navigation {
 
 export interface NavProps {
   setTheme: React.Dispatch<Theme>;
+  setIsSearching: React.Dispatch<boolean>;
 }
