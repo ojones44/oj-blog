@@ -1,9 +1,15 @@
 import styled from 'styled-components';
 
 export const PostWrapper = styled.article`
-  border-bottom: 2px solid var(--theme-clr-accent);
   width: 80vw;
   margin-bottom: 1.5rem;
+  transition: var(--transition-200);
+  border-radius: var(--border-radius);
+
+  &:hover {
+    box-shadow: 1px 7px 10px -3px var(--box-shadow-hover);
+    transform: translateX(2px);
+  }
 
   #title {
     font-size: 1.25rem;
@@ -43,16 +49,28 @@ export const PostWrapper = styled.article`
   .info span {
     font-size: 0.75rem;
     color: var(--theme-clr-accent);
+    font-weight: var(--fw-bold);
   }
 
   .info span:nth-child(2) {
     margin-inline: 1rem;
   }
 
+  .categories {
+    margin-bottom: 1rem;
+  }
+
   .categories span {
     font-size: 0.75rem;
+    font-weight: var(--fw-bold);
     margin-right: 1rem;
     padding: 0.2rem 0.5rem;
-    border-radius: 100vmax;
+    border-radius: ${({ theme }) => (theme.roundUI ? '100vmax' : '2px')};
   }
+
+  /* @media (width < 768px) {
+    img {
+      display: none;
+    }
+  } */
 `;

@@ -6,6 +6,7 @@ export interface Theme {
   colors: {
     base: string;
     fontColor: string;
+    boxShadow: string;
     primary: string;
     secondary: string;
     accent: string;

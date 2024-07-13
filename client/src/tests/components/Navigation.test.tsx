@@ -13,6 +13,8 @@ const router = createMemoryRouter(mockNavBarComponent, {
   initialEntries: ['/'],
 });
 
+// TODO: add test for window size change switching to hamburger menu
+
 describe('NavBar functionality', () => {
   it('has correct title', () => {
     render(<RouterProvider router={router} />);
@@ -20,7 +22,7 @@ describe('NavBar functionality', () => {
     const title = screen.getByText(/ojblog/i);
 
     expect(title).toBeInTheDocument();
-    expect(title).toHaveTextContent('OJBlog');
+    expect(title).toHaveTextContent('OJBLOG');
   });
 
   it('displays correct links from array', () => {
@@ -59,6 +61,12 @@ describe('NavBar functionality', () => {
 
     await user.click(toggleHousing);
     expect(slider).toHaveClass('active');
+  });
+  it('displays search icon', () => {
+    render(<RouterProvider router={router} />);
+
+    const themeIcons = screen.getAllByTitle(/search-icon/i);
+    themeIcons.forEach((searchIcon) => expect(searchIcon).toBeInTheDocument());
   });
   it('displays dark/light icons', () => {
     render(<RouterProvider router={router} />);

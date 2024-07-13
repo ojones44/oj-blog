@@ -30,9 +30,11 @@ export const GlobalStyles = createGlobalStyle`
 
   /* Set theme styles */
   --border-radius: ${({ theme }) => (theme.roundUI ? theme.style.borderRadius : '2px')};
+  --box-shadow-hover: ${({ theme }) => theme.colors.boxShadow};
 
   /* Assign font weights */
   --fw-regular: 300;
+  --fw-semibold: 500;
   --fw-bold: 700;
   --fw-accent-italic: 400;
 
@@ -63,6 +65,7 @@ export const GlobalStyles = createGlobalStyle`
   --transition-200: all 0.2s ease;
   --transition-400: all 0.4s ease-in-out;
   --transition-btn: all 0.2s ease-in-out;
+  --transition-bounce: all 0.2s cubic-bezier(0.28, 0.94, 0.69, -0.04 );
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -89,6 +92,10 @@ export const GlobalStyles = createGlobalStyle`
   font: inherit;
 }
 
+::selection {
+  background-color: var(--theme-clr-neutral);
+}
+
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
 ul[role='list'],
 ol[role='list'] {
@@ -113,7 +120,7 @@ input, button, textarea, select {
 input {
   all: unset;
   padding: 0.5rem 1rem;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
   border: 2px solid var(--theme-clr-accent);
 }
 
@@ -125,7 +132,7 @@ body {
   min-height: 100vw;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  padding: 0.25rem 2rem;
+  transition: var(--transition-200);
 }
 
 /* A elements that don't have a class get default styles */
@@ -142,45 +149,58 @@ picture {
 }
 
 svg {
- cursor: pointer;
- color: var(--fc-primary);
- font-size: var(--fs-400-fix);
+  cursor: pointer;
+  color: var(--fc-primary);
+  font-size: var(--fs-400-fix);
 }
 
 button {
   cursor: pointer;
-  background-color: var(--theme-clr-accent);
+  color: inherit;
+  background-color: var(--theme-clr-base);
   border: none;
   padding: 0.5rem 1rem;
+  border: 2px solid var(--theme-clr-accent);
   border-radius: var(--border-radius);
+  /* transition: var(--transition-200); */
 }
 
 button:hover {
-  transform: translateY(-3px);
-  transition: var(--transition-btn);
+  /* transition: var(--transition-200); */
+  animation: bounce 0.5s normal forwards;
 }
 
 button:active {
-  transform: scale(0.99);
-  transition: var(--transition-200);
+  transform: scale(0.97);
+  /* transition: var(--transition-200); */
 }
 
 
 // utility classes
 
-.icon {
+.container {
+  padding: 0.25rem 1rem;
+}
+
+.icon, .theme-select {
+  cursor: pointer;
   padding: var(--size-200);
 }
 
-.icon:hover {
+
+.icon:hover, .theme-select:hover {
   background-color: var(--theme-clr-primary);
   border-radius: 100vmax;
   transition: var(--transition-400);
 }
 
-.social-link svg:hover {
-  transform: rotateZ(5deg);
+.social-link:hover, .theme-select:hover {
+  /* transform: rotateZ(5deg); */
   transition: var(--transition-200);
+}
+
+.social-link:hover svg {
+  animation: bounce 0.5s normal forwards;
 }
 
 .category-coding {
@@ -199,5 +219,13 @@ button:active {
   background-color: var(--theme-clr-cat-life);
 }
 
-
+@keyframes bounce {
+  0%,  
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+}
 `;

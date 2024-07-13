@@ -16,8 +16,10 @@ export const BlogLayout = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Navigation />
-      <Outlet />
+      <Navigation setTheme={setTheme} />
+      <section className="container">
+        <Outlet />
+      </section>
     </ThemeProvider>
   );
 };

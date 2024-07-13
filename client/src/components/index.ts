@@ -10,6 +10,7 @@ import { Search } from './Search';
 import { Navigation } from './Navigation';
 import { Toggle } from './Toggle';
 import { LinkNewTab } from './LinkNewTab';
+import { ThemeSelect } from './ThemeSelect';
 
 export {
   Heading,
@@ -24,4 +25,5 @@ export {
   Navigation,
   Toggle,
   LinkNewTab,
+  ThemeSelect,
 };
