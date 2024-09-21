@@ -1,36 +1,46 @@
 import { http, HttpResponse, delay } from 'msw';
 import { v4 as uuidv4 } from 'uuid';
+import type { IPost } from '@/types/Post';
 
 const baseUrl: string = 'http://localhost:3000/';
+
+export const testPosts: IPost[] = [
+  {
+    id: '1',
+    title: 'First Post',
+    date: '2024-09-21T14:25:00Z',
+    length: 4,
+    preview: 'First post preview text',
+    categories: ['coding', 'life'],
+    image: '/react-logo.png',
+  },
+  {
+    id: '2',
+    title: 'Second Post',
+    date: '2024-10-12T14:25:00Z',
+    length: 10,
+    preview: 'First post preview text',
+    categories: ['framework', 'life'],
+    image: '/react-logo.png',
+  },
+  {
+    id: '3',
+    title: 'Third Post',
+    date: '2024-10-12T14:25:00Z',
+    length: 10,
+    preview: 'First post preview text',
+    categories: ['framework', 'life'],
+    image: '/react-logo.png',
+  },
+];
 
 // Generic Types
 type MswGeneric = object;
 
 // Mock GET request
-type GetResBody = {
-  id: string;
-  name: string;
-  type: string;
-  introduced: number;
-};
-
-const getReq = http.get<MswGeneric, MswGeneric, GetResBody | GetResBody[]>(
-  `${baseUrl}/guitars`,
-  async () =>
-    HttpResponse.json([
-      {
-        id: uuidv4(),
-        name: 'Gibson J45',
-        type: 'Dreadnought',
-        introduced: 1942,
-      },
-      {
-        id: uuidv4(),
-        name: 'Martin D28',
-        type: 'Dreadnought',
-        introduced: 1931,
-      },
-    ])
+const getReq = http.get<MswGeneric, MswGeneric, IPost | IPost[]>(
+  `/posts.json`,
+  async () => HttpResponse.json(testPosts)
 );
 
 // Mock POST request

@@ -1,3 +1,3 @@
-export interface ContextProps {
+export interface OutletProps {
   isSearching: boolean;
 }

@@ -7,6 +7,9 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from '@/wrappers/Globals';
 import * as themes from '@/wrappers/themes';
 
+// type imports
+import type { OutletProps } from '@/types/Outlet';
+
 // component imports
 import { Navigation } from '@/components';
 
@@ -22,7 +25,7 @@ export const BlogLayout = () => {
         setIsSearching={() => setIsSearching((prev) => !prev)}
       />
       <section className="container">
-        <Outlet context={[isSearching]} />
+        <Outlet context={{ isSearching } satisfies OutletProps} />
       </section>
     </ThemeProvider>
   );

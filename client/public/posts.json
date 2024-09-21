@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "title": "Why are big React applications difficult to manage?",
+    "date": "2024-09-21T14:25:00Z",
+    "length": 4,
+    "preview": "React is a free and open-source front-end JavaScript library for building user interfaces based on components.",
+    "categories": ["coding", "framework", "life"],
+    "image": "/react-logo.png"
+  },
+  {
+    "id": "2",
+    "title": "Oh yes",
+    "date": "2024-09-21T14:25:00Z",
+    "length": 4,
+    "preview": "Top secret second post",
+    "categories": ["coding", "framework"],
+    "image": "/react-logo.png"
+  },
+  {
+    "id": "3",
+    "title": "We fully loaded my man?",
+    "date": "2024-09-21T14:25:00Z",
+    "length": 4,
+    "preview": "Super top secret post",
+    "categories": ["framework", "life"],
+    "image": "/vite.svg"
+  }
+]

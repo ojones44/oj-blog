@@ -31,6 +31,7 @@ module.exports = {
     'jsx-a11y/control-has-associated-label': 'off',
     'import/prefer-default-export': 'off',
     'import/extensions': 'off',
+    'react/jsx-props-no-spreading': 'off',
     'react-hooks/exhaustive-deps': 'error',
     'no-console': 'off',
     'react-refresh/only-export-components': [

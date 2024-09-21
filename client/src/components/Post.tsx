@@ -1,31 +1,36 @@
-import reactLogo from '@/assets/react-logo.png';
-
 // styled imports
-import { PostWrapper } from '@/wrappers/Post';
+import * as SC from '@/wrappers/Post';
 
-export const Post = (): JSX.Element => (
-  <PostWrapper>
-    <div className="post-component">
+// type imports
+import type { PostProps } from '@/types/Post';
+
+// utils
+import { dateFormatter } from '@/utils/dataFormatter';
+
+export const Post = ({ post }: PostProps): JSX.Element => (
+  <SC.PostWrapper>
+    <div data-testid="blog-post" className="post-component">
       <div className="post-content">
-        <h2 id="title">Why are big React applications difficult to manage?</h2>
-        <div className="info">
-          <span>📅 10th Sep 2023</span>
+        <h2 id="title">{post.title}</h2>
+        <div data-testid="timestamps" className="info">
+          <span>📅 {dateFormatter(post.date)}</span>
           <span>|</span>
-          <span>📖 4 min read</span>
+          <span>📖 {post.length} min read</span>
         </div>
-        <p id="preview">
-          React is a free and open-source front-end JavaScript library for
-          building user interfaces based on components.{' '}
+        <p data-testid="preview" id="preview">
+          {post.preview}
         </p>
-        <div className="categories">
-          <span className="category-coding">coding</span>
-          <span className="category-framework">framework</span>
-          <span className="category-life">life</span>
+        <div data-testid="categories" className="categories">
+          {post.categories.map((cat) => (
+            <span key={cat} className={`category-${cat}`}>
+              {cat}
+            </span>
+          ))}
         </div>
       </div>
       <div className="post-image">
-        <img src={reactLogo} alt="react-logo" />
+        <img src={post.image} alt="react-logo" />
       </div>
     </div>
-  </PostWrapper>
+  </SC.PostWrapper>
 );

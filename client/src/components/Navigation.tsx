@@ -15,14 +15,7 @@ import { useCheckNavSeparator } from '@/hooks/useCheckNavSeparator';
 import { navLinks } from '@/utils/navLinks';
 
 // styled components
-import {
-  NavBar,
-  LeftNav,
-  RightNav,
-  NavItem,
-  NavBarThemeToggler,
-  NavBarSocials,
-} from '@/wrappers/NavBar';
+import * as SC from '@/wrappers/NavBar';
 
 export const Navigation = ({
   setTheme,
@@ -31,30 +24,30 @@ export const Navigation = ({
   const [navSeparator] = useCheckNavSeparator();
 
   return (
-    <NavBar className={navSeparator ? 'separator' : ''}>
-      <LeftNav>
+    <SC.NavBar className={navSeparator ? 'separator' : ''}>
+      <SC.LeftNav>
         <div className="blog-name">OJBLOG</div>
         <div className="links">
           {navLinks.map((link) => (
-            <NavItem key={link.name} to={link.to}>
+            <SC.NavItem key={link.name} to={link.to}>
               {link.name}
-            </NavItem>
+            </SC.NavItem>
           ))}
         </div>
-      </LeftNav>
-      <RightNav>
+      </SC.LeftNav>
+      <SC.RightNav>
         <button type="button" onClick={setIsSearching} className="icon nav-btn">
           <IoSearchSharp title="search-icon" />
         </button>
-        <NavBarThemeToggler>
+        <SC.NavBarThemeToggler>
           <div className="toggler">
             <MdOutlineLightMode title="theme-icon" />
             <ThemeToggle toggleHandler={setTheme} />
             <FaRegMoon title="theme-icon" />
           </div>
           <ThemeSelect setTheme={setTheme} />
-        </NavBarThemeToggler>
-        <NavBarSocials>
+        </SC.NavBarThemeToggler>
+        <SC.NavBarSocials>
           <LinkNewTab href="https://github.com/ojones44">
             <FiGithub title="social-link" />
           </LinkNewTab>
@@ -64,8 +57,8 @@ export const Navigation = ({
           <LinkNewTab href="https://x.com/oliverj1994">
             <RiTwitterXLine title="social-link" />
           </LinkNewTab>
-        </NavBarSocials>
-      </RightNav>
-    </NavBar>
+        </SC.NavBarSocials>
+      </SC.RightNav>
+    </SC.NavBar>
   );
 };
